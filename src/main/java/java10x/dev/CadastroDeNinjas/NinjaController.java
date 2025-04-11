@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController // Fala pro java que isto é um controller.
 @RequestMapping // Para colocar todas as rotas no mesmo lugar.
 
-public class Controller {
+public class NinjaController {
 
     @GetMapping("/boasvindas")
     public String boasVindas(){
