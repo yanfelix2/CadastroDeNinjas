@@ -8,9 +8,9 @@ import java.util.List;
 
 @Entity
 @Table (name = "tb_missoes")
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+@Data // É usada para gerar os getters e os  setters.
+@NoArgsConstructor // Cria um contrutor sem argumentos
+@AllArgsConstructor // Cria um construtor om todos os argumentos
 
 //Cada missao vai poder ter varios ninjas, mas cada ninja vai ter uma missao
 
