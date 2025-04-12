@@ -24,6 +24,7 @@ public class NinjaModel { // Transformei a classe em uma entidade do BD e criei 
 
     private String nome;
 
+    @Column(unique = true) // Diz que o email é unico ( usado em cpf, rg, numero de passaporte. )
     private String email;
 
     private int idade;
