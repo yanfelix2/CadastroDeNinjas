@@ -2,12 +2,19 @@ package java10x.dev.CadastroDeNinjas.Ninjas;
 
 import jakarta.persistence.*;
 import java10x.dev.CadastroDeNinjas.Missoes.MissoesModel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 // JPA = Java Persistence API
 @Entity // Entity Transforma uma classe em uma entidade do BD
 @Table(name = "tb_cadastro") // Cria tabela
+@Data // Cria automaticamente os getters e os setters ( LOMBOK )
+@NoArgsConstructor // Cria um construtor vazio ( LOMBOK )
+@AllArgsConstructor // Cria o construtor com todos atributos  e Sempre que eu adicionar algo ele ja atualiza automaticamente. ( LOMBOK )
+
 
 public class NinjaModel { // Transformei a classe em uma entidade do BD e criei a tabela.
 
@@ -25,43 +32,5 @@ public class NinjaModel { // Transformei a classe em uma entidade do BD e criei 
     @ManyToOne
     @JoinColumn(name = "missoes_id")  // Foreing Key ou Chave Estrangeira
     private MissoesModel missoes;
-
-
-
-    public NinjaModel() {
-    }
-
-    public NinjaModel(String nome, String email, int idade) {
-        this.nome = nome;
-        this.email = email;
-        this.idade = idade;
-    }
-
-
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public int getIdade() {
-        return idade;
-    }
-
-    public void setIdade(int idade) {
-        this.idade = idade;
-    }
-
 
 }

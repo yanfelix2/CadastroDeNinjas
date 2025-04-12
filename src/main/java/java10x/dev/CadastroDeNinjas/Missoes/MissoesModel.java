@@ -1,12 +1,16 @@
 package java10x.dev.CadastroDeNinjas.Missoes;
-
 import jakarta.persistence.*;
 import java10x.dev.CadastroDeNinjas.Ninjas.NinjaModel;
-
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import java.util.List;
 
 @Entity
 @Table (name = "tb_missoes")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 
 //Cada missao vai poder ter varios ninjas, mas cada ninja vai ter uma missao
 
