@@ -20,13 +20,19 @@ public class NinjaModel { // Transformei a classe em uma entidade do BD e criei 
 
     @Id // Fala que o atributo que está abaixo vai ser o ID
     @GeneratedValue (strategy = GenerationType.IDENTITY)  // Estrategia de como vai ser gerado o ID automaticamente
+    @Column(name = "id")
     private Long id;
 
+    @Column(name = "nome")
     private String nome;
 
     @Column(unique = true) // Diz que o email é unico ( usado em cpf, rg, numero de passaporte. )
     private String email;
 
+    @Column(name = "img_url")
+    private String imgUrl;
+
+    @Column(name = "idade")
     private int idade;
 
     // @ManyToOne - Um ninja tem uma unica missão
