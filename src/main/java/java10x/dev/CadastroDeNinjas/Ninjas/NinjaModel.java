@@ -2,18 +2,18 @@ package java10x.dev.CadastroDeNinjas.Ninjas;
 
 import jakarta.persistence.*;
 import java10x.dev.CadastroDeNinjas.Missoes.MissoesModel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+//import lombok.AllArgsConstructor;
+//import lombok.Data;
+//import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 // JPA = Java Persistence API
 @Entity // Entity Transforma uma classe em uma entidade do BD
 @Table(name = "tb_cadastro") // Cria tabela
-@Data // Cria automaticamente os getters e os setters ( LOMBOK )
-@NoArgsConstructor // Cria um construtor vazio ( LOMBOK )
-@AllArgsConstructor // Cria o construtor com todos atributos  e Sempre que eu adicionar algo ele ja atualiza automaticamente. ( LOMBOK )
+//@Data // Cria automaticamente os getters e os setters ( LOMBOK )
+//@NoArgsConstructor // Cria um construtor vazio ( LOMBOK )
+//@AllArgsConstructor // Cria o construtor com todos atributos  e Sempre que eu adicionar algo ele ja atualiza automaticamente. ( LOMBOK )
 
 
 public class NinjaModel { // Transformei a classe em uma entidade do BD e criei a tabela.
@@ -34,6 +34,67 @@ public class NinjaModel { // Transformei a classe em uma entidade do BD e criei 
 
     @Column(name = "idade")
     private int idade;
+
+
+    public NinjaModel() {
+    }
+
+    public NinjaModel(Long id, String nome, String email, String imgUrl, int idade, MissoesModel missoes) {
+        this.id = id;
+        this.nome = nome;
+        this.email = email;
+        this.imgUrl = imgUrl;
+        this.idade = idade;
+        this.missoes = missoes;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
+
+    public int getIdade() {
+        return idade;
+    }
+
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
+
+    public MissoesModel getMissoes() {
+        return missoes;
+    }
+
+    public void setMissoes(MissoesModel missoes) {
+        this.missoes = missoes;
+    }
 
     // @ManyToOne - Um ninja tem uma unica missão
     @ManyToOne
