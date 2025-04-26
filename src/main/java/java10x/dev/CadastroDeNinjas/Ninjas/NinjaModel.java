@@ -35,17 +35,21 @@ public class NinjaModel { // Transformei a classe em uma entidade do BD e criei 
     @Column(name = "idade")
     private int idade;
 
+    @Column(name = "rank")
+    private String rank;
+
 
     public NinjaModel() {
     }
 
-    public NinjaModel(Long id, String nome, String email, String imgUrl, int idade, MissoesModel missoes) {
+    public NinjaModel(Long id, String nome, String email, String imgUrl, int idade, MissoesModel missoes, String rank) {
         this.id = id;
         this.nome = nome;
         this.email = email;
         this.imgUrl = imgUrl;
         this.idade = idade;
         this.missoes = missoes;
+        this.rank = rank;
     }
 
     public Long getId() {
@@ -94,6 +98,14 @@ public class NinjaModel { // Transformei a classe em uma entidade do BD e criei 
 
     public void setMissoes(MissoesModel missoes) {
         this.missoes = missoes;
+    }
+
+    public String getRank(){
+        return rank;
+    }
+
+    public void setRank(String rank){
+        this.rank = rank;
     }
 
     // @ManyToOne - Um ninja tem uma unica missão
