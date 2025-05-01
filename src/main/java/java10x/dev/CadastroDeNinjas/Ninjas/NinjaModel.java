@@ -16,6 +16,7 @@ import java.util.List;
 //@AllArgsConstructor // Cria o construtor com todos atributos  e Sempre que eu adicionar algo ele ja atualiza automaticamente. ( LOMBOK )
 
 
+
 public class NinjaModel { // Transformei a classe em uma entidade do BD e criei a tabela.
 
     @Id // Fala que o atributo que está abaixo vai ser o ID
@@ -112,5 +113,19 @@ public class NinjaModel { // Transformei a classe em uma entidade do BD e criei 
     @ManyToOne
     @JoinColumn(name = "missoes_id")  // Foreing Key ou Chave Estrangeira
     private MissoesModel missoes;
+
+    @Override
+    public String toString() {
+        return "NinjaModel{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", email='" + email + '\'' +
+                ", imgUrl='" + imgUrl + '\'' +
+                ", idade=" + idade +
+                ", rank='" + rank + '\'' +
+                ", missoesNome='" + (missoes != null ? missoes.getNome() : null) + '\'' +
+                '}';
+    }
+
 
 }
