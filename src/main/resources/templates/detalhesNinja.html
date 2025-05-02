@@ -6,23 +6,32 @@
   <style>
     body {
         font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
+        background-image: url('https://www.pixelstalk.net/wp-content/uploads/images6/Naruto-Wallpaper-Free-Download.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        min-height: 100vh;
         margin: 0;
         padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     h1 {
         text-align: center;
         color: #333;
+        margin-bottom: 20px;
     }
 
-    div {
-        background-color: white;
+    .details-container {
+        background-color: rgba(255, 255, 255, 0.95);
         border-radius: 8px;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         padding: 20px;
         max-width: 600px;
-        margin: auto;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     img {
@@ -36,6 +45,13 @@
     p {
         font-size: 16px;
         color: #555;
+        margin: 8px 0;
+    }
+
+    h2 {
+        text-align: center;
+        margin: 10px 0 20px;
+        color: #333;
     }
 
     h3 {
@@ -64,7 +80,7 @@
         background-color: #f1f1f1;
     }
 
-    a {
+    a.back-link {
         display: inline-block;
         margin-top: 20px;
         padding: 10px 15px;
@@ -76,16 +92,16 @@
         text-align: center;
     }
 
-    a:hover {
+    a.back-link:hover {
         background-color: #45a049;
     }
   </style>
 </head>
 <body>
-<h1>Detalhes do Ninja</h1>
-<div>
-  <img th:src="${ninja.imgUrl}" alt="${ninja.nome}" width="200" />
-  <p><strong>ID:</strong> <span th:text="${ninja.id}"></span></p> <!-- ID adicionado aqui -->
+<div class="details-container">
+  <h1>Detalhes do Ninja</h1>
+  <img th:src="${ninja.imgUrl}" alt="${ninja.nome}" />
+  <p><strong>ID:</strong> <span th:text="${ninja.id}"></span></p>
   <h2 th:text="${ninja.nome}"></h2>
   <p><strong>Email:</strong> <span th:text="${ninja.email}"></span></p>
   <p><strong>Idade:</strong> <span th:text="${ninja.idade}"></span></p>
@@ -106,7 +122,8 @@
     </tr>
     </tbody>
   </table>
+
+  <a class="back-link" th:href="@{/ninjas/ui/listar}">Voltar para a lista de ninjas</a>
 </div>
-<a href="/ninjas/ui/listar">Voltar para a lista de ninjas</a>
 </body>
 </html>
