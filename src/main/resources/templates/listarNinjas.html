@@ -27,7 +27,7 @@
           text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
         }
 
-       .btn-adicionar {
+        .btn-adicionar {
           display: inline-block;
           background-color: #2ecc71; /* verde */
           color: #ffffff; /* texto branco */
@@ -37,10 +37,10 @@
           border-radius: 5px;
           font-size: 16px;
           transition: background-color 0.3s ease;
-    }
-       .btn-adicionar:hover {
+        }
+        .btn-adicionar:hover {
           background-color: #27ae60; /* verde mais escuro */
-    }
+        }
 
         table {
           width: 100%;
@@ -66,7 +66,6 @@
           font-size: 14px;
         }
 
-        /* Arredonda só o canto superior do cabeçalho */
         th:first-child {
           border-top-left-radius: 10px;
         }
@@ -78,7 +77,6 @@
           background-color: #f9f9f9;
         }
 
-        /* Zoom suave no texto das células, com delay */
         td {
           transition: font-size 0.3s ease 0.3s;
         }
@@ -94,8 +92,9 @@
           transform: scale(1.1);
         }
 
-        .button {
-          background-color: #2ecc71;
+        /* Botões específicos */
+        .button-detalhes {
+          background-color: #3498db; /* azul */
           color: white;
           padding: 8px 12px;
           margin: 2px;
@@ -106,8 +105,40 @@
           transition: background-color 0.3s ease;
           display: inline-block;
         }
-        .button:hover {
-          background-color: #27ae60;
+        .button-detalhes:hover {
+          background-color: #2980b9; /* azul mais escuro */
+        }
+
+        .button-alterar {
+          background-color: #f39c12; /* laranja */
+          color: white;
+          padding: 8px 12px;
+          margin: 2px;
+          text-decoration: none;
+          border: none;
+          border-radius: 5px;
+          font-size: 14px;
+          transition: background-color 0.3s ease;
+          display: inline-block;
+        }
+        .button-alterar:hover {
+          background-color: #e67e22; /* laranja mais escuro */
+        }
+
+        .button-deletar {
+          background-color: #e74c3c; /* vermelho */
+          color: white;
+          padding: 8px 12px;
+          margin: 2px;
+          text-decoration: none;
+          border: none;
+          border-radius: 5px;
+          font-size: 14px;
+          transition: background-color 0.3s ease;
+          display: inline-block;
+        }
+        .button-deletar:hover {
+          background-color: #c0392b; /* vermelho mais escuro */
         }
 
         @keyframes fadeIn {
@@ -143,16 +174,15 @@
         <td th:text="${ninja.email}"></td>
         <td th:text="${ninja.rank}"></td>
         <td>
-        <span th:if="${ninja.missoes != null}">
-          <span th:text="${ninja.missoes.nome}"></span>,Dificuldade: <span th:text="${ninja.missoes.dificuldade}"></span>
-        </span>
-         <span th:if="${ninja.missoes == null}"> Sem Missões cadastradas para o ninja</span>
-
+          <span th:if="${ninja.missoes != null}">
+            <span th:text="${ninja.missoes.nome}"></span>, Dificuldade: <span th:text="${ninja.missoes.dificuldade}"></span>
+          </span>
+            <span th:if="${ninja.missoes == null}">Sem Missões cadastradas para o ninja</span>
         </td>
         <td>
-            <a  th:href="@{/ninjas/ui/listar/{id}(id=${ninja.id})}" class="button">Ver detalhes</a>
-            <a  th:href="@{/ninjas/ui/#/{id}(id=${ninja.id})}" class="button">Alterar</a>
-            <a th:href="@{/ninjas/ui/deletar/{id}(id=${ninja.id})}" class="button">Deletar</a>
+            <a th:href="@{/ninjas/ui/listar/{id}(id=${ninja.id})}" class="button-detalhes">Ver detalhes</a>
+            <a th:href="@{/ninjas/ui/alterar/{id}(id=${ninja.id})}" class="button-alterar">Alterar</a>
+            <a th:href="@{/ninjas/ui/deletar/{id}(id=${ninja.id})}" class="button-deletar">Deletar</a>
         </td>
     </tr>
     </tbody>
