@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Detalhes da Missão</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+    }
+    .page-wrapper {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      width: 100%;
+      max-width: 600px;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 16px;
+      color: #555;
+      margin: 8px 0;
+    }
+    p strong {
+      color: #333;
+    }
+    h3 {
+      margin-top: 25px;
+      color: #333;
+      border-bottom: 2px solid #4CAF50;
+      padding-bottom: 5px;
+    }
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin-top: 10px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    th {
+      background-color: #4CAF50;
+      color: white;
+      font-weight: normal;
+    }
+    tr:last-child td {
+      border-bottom: none;
+    }
+    tr:hover td {
+      background-color: #f9f9f9;
+    }
+    .btn-back {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 16px;
+      background-color: #4CAF50;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background-color 0.3s;
+    }
+    .btn-back:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+
+<body>
+<div class="page-wrapper">
+  <h1>Detalhes da Missão</h1>
+  <p><strong>ID:</strong> <span th:text="${missao.id}"></span></p>
+  <p><strong>Nome:</strong> <span th:text="${missao.nome}"></span></p>
+  <p><strong>Dificuldade:</strong> <span th:text="${missao.dificuldade}"></span></p>
+
+  <h3>Ninjas cadastrados nas missões</h3>
+  <table>
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Nome</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="ninja : ${missao.ninjas}">
+      <td th:text="${ninja.id}"></td>
+      <td th:text="${ninja.nome}"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <a th:href="@{/missoes/ui/listar}" class="btn-back">Voltar para a lista de missões</a>
+</div>
+</body>
+</html>
