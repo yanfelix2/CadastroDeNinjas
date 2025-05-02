@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Alterar Missão</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .form-container {
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    .form-container form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-top: 10px;
+      margin-bottom: 6px;
+      color: #555;
+      font-weight: bold;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+      width: 100%;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 12px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 16px;
+      width: 100%;
+      text-align: center;
+      box-sizing: border-box;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    a {
+      display: block;
+      margin-top: 20px;
+      text-align: center;
+      color: #4CAF50;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    a:hover {
+      color: #388e3c;
+    }
+
+    .mensagem {
+      margin-bottom: 15px;
+      padding: 10px;
+      background-color: #e7f3e7;
+      color: #2e7d32;
+      border: 1px solid #c8e6c9;
+      border-radius: 8px;
+      font-size: 14px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+<div class="form-container">
+  <h1>Alterar Missão</h1>
+  <form th:action="@{/missoes/ui/salvarMissaoAtualizada}" th:object="${missao}" method="post">
+    <input type="hidden" th:field="*{id}" />
+
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" th:field="*{nome}" required />
+
+    <label for="dificuldade">Dificuldade:</label>
+    <input type="text" id="dificuldade" th:field="*{dificuldade}" required />
+
+    <button type="submit">Salvar Alterações</button>
+  </form>
+  <a th:href="@{/missoes/ui/listar}">Cancelar e voltar</a>
+</div>
+</body>
+</html>

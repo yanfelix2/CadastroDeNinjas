@@ -38,6 +38,11 @@ public class NinjaDTO {
         this.rank = rank;
     }
 
+    public NinjaDTO(Long id, String nome) {
+        this.id = id;
+        this.nome = nome;
+    }
+
     public Long getId() {
         return id;
     }

@@ -53,6 +53,8 @@ public class NinjaModel { // Transformei a classe em uma entidade do BD e criei 
         this.rank = rank;
     }
 
+
+
     public Long getId() {
         return id;
     }
